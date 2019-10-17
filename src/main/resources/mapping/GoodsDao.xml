@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.accp.dao.GoodsDao">
+
+	<select id="queryAll" resultType="com.accp.pojo.Goods">
+		select * from goods where `key`=1
+	</select>
+	
+	<select id="queryOne" resultType="com.accp.pojo.Goods">
+		select * from goods where gid=#{gid}
+	</select>
+	
+	<update id="updateGoods">
+		update goods set gname=#{goods.gname},gtype=#{goods.gtype},
+		 gprice=#{goods.gprice},gimg=#{goods.gimg},gflag=#{goods.gflag},
+		  ginfo=#{goods.ginfo}  where gid=#{goods.gid}
+	</update>
+	
+	<update id="deleteGoods">
+		update goods set `key`=0 where gid=#{gid}
+	</update>
+	
+	
+	<insert id="insertGoods">
+		insert into goods(gid,gname,gtype,gimg,gprice,gflag,ginfo) 
+		 values(#{goods.gid},#{goods.gname},#{goods.gtype},
+		#{goods.gimg},#{goods.gprice},#{goods.gflag},#{goods.ginfo})
+	</insert>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
